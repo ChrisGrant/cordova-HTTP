@@ -221,7 +221,7 @@
             return;
         }
    
-        CDVFile *file = [[CDVFile alloc] init];
+        CDVFile *file = (CDVFile *)[(id)self.viewController performSelector:@selector(pluginObjects) withObject:nil][@"CDVFile"];
         NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
         [dictionary setObject:[NSNumber numberWithInt:operation.response.statusCode] forKey:@"status"];
         [dictionary setObject:[file getDirectoryEntry:filePath isDirectory:NO] forKey:@"file"];
