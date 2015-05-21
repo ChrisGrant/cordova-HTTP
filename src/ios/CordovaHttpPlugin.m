@@ -166,7 +166,9 @@
     NSDictionary *parameters = [command.arguments objectAtIndex:1];
     NSDictionary *headers = [command.arguments objectAtIndex:2];
     NSString *filePath = [command.arguments objectAtIndex: 3];
-   
+    
+    filePath = [filePath stringByReplacingOccurrencesOfString:@"file://" withString:@""];
+    
     [self setRequestHeaders: headers];
     
     CordovaHttpPlugin* __weak weakSelf = self;
